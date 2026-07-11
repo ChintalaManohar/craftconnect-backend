@@ -20,18 +20,21 @@ public class CorsConfig {
         config.setAllowedOrigins(
                 List.of(
                         "http://localhost:5173",
-                        "http://localhost:5174"));
+                        "http://localhost:5174",
+                        "https://craftconnect-frontend-production.up.railway.app"
+                ));
 
         config.setAllowedMethods(
                 List.of(
                         "GET",
                         "POST",
                         "PUT",
+                        "PATCH",
                         "DELETE",
-                        "OPTIONS"));
+                        "OPTIONS"
+                ));
 
-        config.setAllowedHeaders(
-                List.of("*"));
+        config.setAllowedHeaders(List.of("*"));
 
         config.setAllowCredentials(true);
 
@@ -40,7 +43,8 @@ public class CorsConfig {
 
         source.registerCorsConfiguration(
                 "/**",
-                config);
+                config
+        );
 
         return source;
     }
