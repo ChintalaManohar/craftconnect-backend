@@ -49,6 +49,12 @@ public class SecurityConfig {
                     "ARTISAN",
                     "ADMIN"
                 )
+                
+                .requestMatchers(
+                        HttpMethod.POST,
+                        "/api/products/createproduct"
+                )
+                .hasRole("ARTISAN")
 
                 .requestMatchers(
                     HttpMethod.GET,
