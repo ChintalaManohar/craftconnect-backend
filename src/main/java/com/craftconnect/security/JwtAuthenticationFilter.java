@@ -64,6 +64,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         	                    userDetails,
         	                    null,
         	                    userDetails.getAuthorities());
+        	    
+        	    System.out.println(
+        	    	    "AUTHENTICATED USER: " + userDetails.getUsername()
+        	    	);
+
+        	    	System.out.println(
+        	    	    "AUTHORITIES: " + userDetails.getAuthorities()
+        	    	);
 
         	    SecurityContextHolder
         	            .getContext()
@@ -72,8 +80,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         } catch (Exception e) {
 
-            System.out.println(
-                    "Invalid JWT Token");
+        	System.out.println(
+        	        "JWT ERROR: " + e.getMessage()
+        	);
         }
 
         filterChain.doFilter(request, response);
